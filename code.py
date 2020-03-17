@@ -10,9 +10,13 @@ Write a python class for tech learners and mentors. Should have following method
     getMentor() : Takes stack and time as params and finds available mentors.
 
 '''
+from datetime import datetime
+
+
 class Bootcamp(dict):
 
     participant_types = ['mentor','learner']
+    mentors = dict()
 
     def add_participant(self, username):
         self.current_participant = username
@@ -20,7 +24,14 @@ class Bootcamp(dict):
 
     def addStacks(self, stack_type, *args):
         if stack_type=='expertise':
+            '''pending - condition to check if mentor before adding stack to mentors dict '''
             self[self.current_participant]['expertise'] = list(args)
+            for i in args:
+                if i in self.mentors.keys():
+                    self.mentors[i].append(self.current_participant)
+                else:
+                    self.mentors[i] = [self.current_participant]
+
         elif stack_type=='interests':
             self[self.current_participant]['interests'] = list(args)
 
@@ -31,16 +42,25 @@ class Bootcamp(dict):
             print("Invalid participant type")
 
     def change_current_participant(self, username):
-        if username in self.keys:
+        if username in self:
             self.current_participant = username
             print("Participant changed")
         else:
             print("Participant doesn't exist. Try adding using add_participant method.")
 
-    def setAvailableTime():
-        ''' pending '''
-        pass
+    def setAvailableTime(self, avail_time):
+        self[self.current_participant]['available_time'] = [datetime.strptime(i,"%I:%M%p") for i in avail_time.split("-")]
 
-    def getMentor():
-        ''' pending '''
-        pass
+
+    def getMentor(self, avail_time, *args):
+        req_from_time, req_to_time = [datetime.strptime(i,"%I:%M%p") for i in avail_time.split("-")]
+        avail = dict()
+        for i in args:
+            avail[i] = []
+            if i in self.mentors.keys():
+                for j in self.mentors[i]:
+                    if req_from_time>=self[j]['available_time'][0] and req_to_time<=self[j]['available_time'][1]:
+                        avail[i].append((j,req_from_time, req_to_time))
+            else:
+                avail[i] = None
+        print(avail)
