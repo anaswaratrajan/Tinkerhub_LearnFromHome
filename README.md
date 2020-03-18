@@ -7,7 +7,7 @@ Table of contents
 * [Features](#features)
 * [Usage](#usage)
 
-Features
+# Features
 
 - add_participant(<username>) - Add new participant
   
@@ -30,8 +30,10 @@ avail_time format - "%I:%M%p-%I:%M%p" Eg: "4:30PM-5:00PM"
 - change_current_participant(<username>) - Switch to another participant
 
 - get_learners(<argument1> ,<argument2> ...)
+  
+  See usage for more details
 
-Usage
+# Usage
 
 Clone the repo
 ```
@@ -44,11 +46,14 @@ Enter directory Tinkerhub_LearnFromHome
 ```
 
 To test the class either run test.py or import the code to cli and test according to the doc
+
+## Run test.py
 ```
   python test.py
 ``` 
 
 or
+## Test in cli
 ```
   from code import Bootcamp
 
