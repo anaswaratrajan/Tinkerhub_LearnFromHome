@@ -4,13 +4,12 @@ Class for the techlearners and mentors of the bootcamp
 
 ### Table of contents
 -------------
-* [Problem statement](#Problem statement)
+* [Problem statement](#problem)
 * [Features](#features)
 * [Usage](#usage)
 
+<a name="description"></a>
 # Problem statement
-
-Problem statement
 
 Write a python class for tech learners and mentors. Should have following methods
 
