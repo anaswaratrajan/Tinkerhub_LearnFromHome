@@ -17,6 +17,8 @@ Features
 participant_type - 'mentor'/'learner'
 
 - addStacks( <stack_type>,<arg1> ,<arg2> ...) : Add a particular stack of interest/expertise 
+  Note: Both mentors and learners can add expertise and interests. But only expertises of mentors are taken for getMentor()
+  and interests of learners taken for getlearners()
 stack_type - 'expertise'/'interests' 
 arg1, arg2 .. - interests/expertises Eg: "Python","Javascript"
   
@@ -54,7 +56,7 @@ or
 
   TH_LearnFromHome = Bootcamp()
 ``` 
-Making entries 
+Making entries (setMentorOrLearner after add_participant)
 
 ```
   TH_LearnFromHome.add_participant("atr")
