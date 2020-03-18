@@ -50,7 +50,32 @@ To test the class either run test.py or import the code to cli and test accordin
 
 or
 ```
-from code import Bootcamp
+  from code import Bootcamp
 
-TH_LearnFromHome = Bootcamp()
+  TH_LearnFromHome = Bootcamp()
 ``` 
+Making entries 
+
+```
+  TH_LearnFromHome.add_participant("atr")
+  TH_LearnFromHome.setMentorOrLearner("mentor")
+  TH_LearnFromHome.setAvailableTime("4:30PM-6:00PM")
+  TH_LearnFromHome.addStacks("expertise","Python","Django","Flask")
+  TH_LearnFromHome.addStacks("interests","Python","Javascript","Machine learning","C++")
+```
+Get details of current participant 
+```
+  TH_LearnFromHome.get_current_participant()
+```
+Switch to another participant
+```
+  TH_LearnFromHome.change_current_participant("atr")
+```
+Get mentor for a stack in available time
+```
+  TH_LearnFromHome.getMentor("5:00PM-5:30PM","Python","Flask","Javascript")
+```
+Get learners for a stack
+```
+TH_LearnFromHome.get_learners("5:00PM-5:30PM","Python")
+```
