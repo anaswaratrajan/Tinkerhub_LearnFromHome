@@ -35,4 +35,5 @@ TH_LearnFromHome.addStacks("interests","Javascript","Python",)
 print("getMentor() called for the stack Python, Flask, Javascript at available time 5:00PM-5:30PM")
 TH_LearnFromHome.getMentor("5:00PM-5:30PM","Python","Flask","Javascript")
 
+#Get learners for a stack
 TH_LearnFromHome.get_learners("5:00PM-5:30PM","Python")
