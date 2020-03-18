@@ -67,8 +67,11 @@ class Bootcamp(dict):
             print("Participant doesn't exist. Try adding using add_participant method.")
 
     def setAvailableTime(self, avail_time):
-        self[self.current_participant]['available_time'] = [datetime.strptime(i,"%I:%M%p") for i in avail_time.split("-")]
-        print("Available time %s set for %s"%(avail_time, self.current_participant))
+        if self[self.current_participant]['participant_type']=='mentor':
+            self[self.current_participant]['available_time'] = [datetime.strptime(i,"%I:%M%p") for i in avail_time.split("-")]
+            print("Available time %s set for %s"%(avail_time, self.current_participant))
+        else:
+            print("Participant not mentor")
 
     def getMentor(self, avail_time, *args):
         req_from_time, req_to_time = [datetime.strptime(i,"%I:%M%p") for i in avail_time.split("-")]
